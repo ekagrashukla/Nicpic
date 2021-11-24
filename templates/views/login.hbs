@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{>header}}
+</head>
+<body>
+    {{>navbar}}
+    <h1>Login Page</h1>
+    <div class="login-page">
+      <div class="form">
+        <form class="register-form" ction="/login" method="POST">
+            <input class="ip" type="email" placeholder="email"/ name="email"><br/>
+            <input class="ip" type="password" placeholder="password" name="password"/><br/>
+            <input class="button" type="submit" value="Login"/>
+          <p class="message">New here? <a href="/register">Register</a></p>
+        </form>
+      </div>
+    </div>
+{{>scripts}}
+</body>
+</html>
