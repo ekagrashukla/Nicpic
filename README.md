@@ -1,6 +1,6 @@
 # Nicpic
 
-A webapp created using NodeJS that takes your ordinary images and converts it to professional ones.
+### A webapp created using NodeJS that takes your ordinary images and converts it to professional ones.
 
 Checklist:<br/><br/>
 ✔️  1. Use formidable package to take imageas input.<br/>
