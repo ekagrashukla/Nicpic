@@ -3,7 +3,7 @@
 ### A webapp created using NodeJS that takes your ordinary images and converts it to professional ones.
 
 Checklist:<br/><br/>
-✔️  1. Use formidable package to take imageas input.<br/>
+✔️  1. Use formidable package to take image as input.<br/>
 ✔️  2. Use remove.bg to remove background image.<br/>
 ✔️  3. Use Jimp module to add different backgrounds and perform cropping and other tasks.<br/>
 ✔️  4. Design Schema for database.<br/>
