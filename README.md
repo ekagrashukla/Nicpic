@@ -16,3 +16,18 @@ Checklist:<br/><br/>
    11. Authenticate user with JWT cookie.<br/>
    12. Logout User from one device.<br/>
    13. LOgout user from all the devices.<br/>
+
+
+Working Demo
+## Original Image
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/test_img/001.jpg" width="250px"/>
+
+## Output Images
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/output/output_circular/circle_color_result0.png" width="200px"/>
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/output/output_circular/circle_color_result1.png" width="200px"/>
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/output/output_circular/circle_color_result2.png" width="200px"/>
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/output/output_circular/circle_color_result3.png" width="200px"/>
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/output/output_circular/circle_color_result4.png" width="200px"/>
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/output/output_circular/circle_color_result5.png" width="200px"/>
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/output/output_circular/circle_color_result6.png" width="200px"/>
+<img src="https://raw.githubusercontent.com/ekagrashukla/Nicpic-ProfilePicMaker/main/output/output_circular/circle_color_result7.png" width="200px"/>
