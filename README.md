@@ -9,11 +9,11 @@ Checklist:<br/><br/>
 ✔️  4. Design Schema for database.<br/>
 ✔️  5. User Registration functionality with MongoDB.<br/>
 ✔️  6. User Login functionality.<br/>
-   7. Perform Input validation using Validator module.<br/>
+✔️  7. Perform Input validation using Validator module.<br/>
 ✔️  8. Stores user password in database in hashed form.<br/>
 ✔️  9. Creates Authentication token on every Login/Signup and appends it to database.<br/>
-✔️  10. Generates jwt cookies on every login/signup for user authentication.<br/>
-   11. Authenticate user with JWT cookie.<br/>
+✔️  10. Generates jwt cookies on every login/signup for user authentication.<br/>✔️
+✔️  11. Authenticate user with JWT cookie.<br/>
    12. Logout User from one device.<br/>
    13. LOgout user from all the devices.<br/>
 
