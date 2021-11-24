@@ -10,9 +10,12 @@ const { background } = require('jimp');
 const Jimp = require('jimp');
 const bcrypt = require('bcryptjs');
 const cookieParser = require("cookie-parser");
+const auth = require("./middleware/auth");
+const jwt = require("jsonwebtoken")
 var config = require('../config.json');
 
 const key = config.SECRET_KEY
+const msz = config.SECRET_MESSAGE
 
 
 const app = express();
@@ -79,7 +82,6 @@ app.post('/fileupload', (req,res)=> {
         },
         headers: {
             "X-Api-Key" : key
-            // "X-Api-Key" : 'Cii4Vmnv8hSJ7dUS85QBNn2X'
         },
         encoding: null
     }, async function(error, response, body) {
@@ -141,24 +143,23 @@ app.post("/login", async (req,res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
-        const user_ = await Student.findOne({email:email});
-        const isMatch = await bcrypt.compare(password, user_.password)
+        const user = await Student.findOne({email:email});
+        const isMatch = await bcrypt.compare(password, user.password)
         console.log(isMatch)
         if(isMatch){
-            const token = await user_.generateAuthToken();
+            const token = await user.generateAuthToken();
             console.log("login auth token "+token);
 
             res.cookie("jwt",token, {
-                expires: new Date(Date.now()+3000),
+                expires: new Date(Date.now()+900000),//15 minutes
                 httpOnly:true
             });
-            console.log(`Cookie here => ${req.cookies.jwt}`)
-            res.status(201).send("Login Successful")
+            res.status(201).render("index")
             console.log("login successful")
         }
         else{
             res.send("Wrong Credentials")
-            console.log(user_.password)
+            console.log(user.password)
         }
 
     } catch (error) {
@@ -166,6 +167,29 @@ app.post("/login", async (req,res) => {
         res.status(400).send("Invalid email")
     }
 });
+
+app.get("/secret", auth ,async (req,res)=>{
+    console.log("Cookie here => "+req.cookies.jwt)
+    const vu = jwt.verify(req.cookies.jwt, msz)
+    const data = await Student.findOne({_id:vu._id})
+    // console.log(data)
+    res.render("secret",{cook: req.cookies.jwt, uname:data.username, email:data.email, addr:data.address})
+})
+
+app.get("/logout", auth, async(req,res) => {
+    try {
+        console.log(req.user)
+        req.user.tokens = req.user.tokens.filter((currElement) => {
+            return currElement.token != req.token
+        })
+        res.clearCookie("jwt");
+        console.log("logout successfully")
+        await req.user.save()
+        res.render("index")
+    } catch (error) {
+        res.status(500).send(error) 
+    }
+})
 
 app.listen(port, () => {
     console.log("Express Running")

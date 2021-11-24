@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
+const validator = require("validator");
 
 var config = require('../../config.json');
 
@@ -15,7 +16,12 @@ const studentSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: [true, "Email id already present"],
+        unique: true,
+        validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error("Email is invalid")
+            }
+        }
     },
     password:{
         type: String,
