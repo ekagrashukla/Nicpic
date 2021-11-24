@@ -79,7 +79,6 @@ app.post('/fileupload', (req,res)=> {
         },
         headers: {
             "X-Api-Key" : key
-            // "X-Api-Key" : 'Cii4Vmnv8hSJ7dUS85QBNn2X'
         },
         encoding: null
     }, async function(error, response, body) {
