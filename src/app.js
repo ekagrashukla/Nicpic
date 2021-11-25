@@ -13,6 +13,8 @@ const cookieParser = require("cookie-parser");
 const auth = require("./middleware/auth");
 const jwt = require("jsonwebtoken")
 var config = require('../config.json');
+const nodemailer = require("nodemailer");
+const { getMaxListeners } = require("process");
 
 const key = config.SECRET_KEY
 const msz = config.SECRET_MESSAGE
@@ -44,7 +46,6 @@ const bgs = ['./backgrounds/bg000.jpg','./backgrounds/bg001.jpg','./backgrounds/
     './backgrounds/bg008.jpeg']
 
 let counter = 0
-
  
 async function add_background_image(bg) {
     const image1 = await Jimp.read(bg);
@@ -154,6 +155,7 @@ app.post("/login", async (req,res) => {
                 expires: new Date(Date.now()+900000),//15 minutes
                 httpOnly:true
             });
+
             res.status(201).render("index")
             console.log("login successful")
         }
@@ -176,6 +178,8 @@ app.get("/secret", auth ,async (req,res)=>{
     res.render("secret",{cook: req.cookies.jwt, uname:data.username, email:data.email, addr:data.address})
 })
 
+// ------ Logout -------- 
+
 app.get("/logout", auth, async(req,res) => {
     try {
         console.log(req.user)
@@ -188,6 +192,18 @@ app.get("/logout", auth, async(req,res) => {
         res.render("index")
     } catch (error) {
         res.status(500).send(error) 
+    }
+})
+
+app.get("/logoutall", auth, async(req,res) => {
+    try {
+        req.user.tokens = []
+        res.clearCookie("jwt");
+        console.log("Successfully logged out from all the devices")
+        await req.user.save()
+        res.render("index")
+    } catch (error) {
+        res.status(500).send(error)
     }
 })
 

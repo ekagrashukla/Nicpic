@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
 const validator = require("validator");
 
-
 var config = require('../../config.json');
 
 const msz = config.SECRET_MESSAGE
@@ -13,24 +12,23 @@ const studentSchema = new mongoose.Schema({
         type: String,
         required: true,
         minlength: 3,
-        trim:true
+        trim: true
     },
     email: {
         type: String,
         lowercase: true,
         required: true,
         unique: true,
-        trim:true,
+        trim: true,
         validate(value){
             if(!validator.isEmail(value)){
-                throw new Error("invalid email")
+                throw new Error("Email is invalid")
             }
         }
     },
     password:{
         type: String,
         minlength:3,
-        maxlength:16,
         required: true,
         trim:true
     },
