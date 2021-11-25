@@ -17,8 +17,10 @@
     "formidable": "^2.0.1",
     "hbs": "^4.2.0",
     "jimp": "^0.16.1",
+    "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.13",
+    "mongoose-validator": "^2.1.0",
     "nodemon": "^2.0.15",
     "request": "^2.88.2",
     "validator": "^13.7.0"
