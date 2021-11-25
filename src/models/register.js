@@ -12,12 +12,15 @@ const studentSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        minlength: 3
+        minlength: 3,
+        trim:true
     },
     email: {
         type: String,
+        lowercase: true,
         required: true,
         unique: true,
+        trim:true,
         validate(value){
             if(!validator.isEmail(value)){
                 throw new Error("invalid email")
@@ -26,12 +29,15 @@ const studentSchema = new mongoose.Schema({
     },
     password:{
         type: String,
-        min:3,
+        minlength:3,
+        maxlength:16,
         required: true,
+        trim:true
     },
     address:{
         type: String,
-        required: true
+        required: true,
+        trim:true
     },
     tokens:[{
         token:{
