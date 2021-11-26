@@ -14,8 +14,10 @@ Checklist:<br/><br/>
 ✔️  9. Creates Authentication token on every Login/Signup and appends it to database.<br/>
 ✔️  10. Generates jwt cookies on every login/signup for user authentication.<br/>
 ✔️  11. Authenticate user with JWT cookie.<br/>
-   12. Logout User from one device.<br/>
-   13. Logout user from all the devices.<br/>
+✔️  12. Logout User from one device.<br/>
+✔️  13. Logout user from all the devices.<br/>
+   14. Get a verification link on new registration on provided email id.<br/>
+   15. User will be allowed to login only after email verification.</br/> 
 
 
 Working Demo
