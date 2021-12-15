@@ -16,8 +16,8 @@ Checklist:<br/><br/>
 ✔️  11. Authenticate user with JWT cookie.<br/>
 ✔️  12. Logout User from one device.<br/>
 ✔️  13. Logout user from all the devices.<br/>
-   14. Get a verification link on new registration on provided email id.<br/>
-   15. User will be allowed to login only after email verification.</br/> 
+✔️  14. Get a verification link on new registration on provided email id.<br/>
+✔️  15. User will be allowed to login only after email verification.</br/> 
 
 
 Working Demo
